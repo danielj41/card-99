@@ -1,0 +1,3 @@
+*.pyc
+tensorflow
+.DS_Store
