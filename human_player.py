@@ -1,5 +1,5 @@
 from game import Player, Game
-from card import N_ACE, N_10, cardDisplayTitle
+from card import N_ACE, N_10, O_SMALL, O_LARGE, cardDisplayTitle, isOptionCard, cardOptionDisplayTitle
 
 
 class HumanPlayer(Player):
@@ -28,19 +28,16 @@ class HumanPlayer(Player):
         print
 
         option = None
-        if (self.hand[index] in (N_ACE, N_10)):
+        card = self.hand[index]
+
+        if (isOptionCard(card)):
             choice = None
-            if (self.hand[index] == N_ACE):
-                print "1 - Add 1"
-                print "2 - Add 11"
-                print
-            if (self.hand[index] == N_10):
-                print "1 - Subtract 10"
-                print "2 - Add 10"
-                print
+            print "1 -", cardOptionDisplayTitle(card, O_SMALL)
+            print "2 -", cardOptionDisplayTitle(card, O_LARGE)
+            print
             while (choice not in (1, 2)):
                 choice = int(raw_input("Which value? "))
-            option = choice - 1
+            option = O_SMALL if choice == 1 else O_LARGE
 
         return index, option
 

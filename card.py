@@ -12,9 +12,6 @@ N_JACK = 11
 N_QUEEN = 12
 N_KING = 13
 
-O_SMALL = 0
-O_LARGE = 1
-
 DISPLAY_CARD = {
     N_ACE: 'Ace',
     N_2: '2',
@@ -33,3 +30,25 @@ DISPLAY_CARD = {
 
 def cardDisplayTitle(card):
     return DISPLAY_CARD[card]
+
+OPTION_CARDS = [N_ACE, N_10]
+
+O_SMALL = 0
+O_LARGE = 1
+
+DISPLAY_OPTION = {
+    N_ACE: {
+        O_SMALL: 'Add 1',
+        O_LARGE: 'Add 11'
+    },
+    N_10: {
+        O_SMALL: 'Subtract 10',
+        O_LARGE: 'Add 10'
+    }
+}
+
+def isOptionCard(card):
+    return card in OPTION_CARDS
+
+def cardOptionDisplayTitle(card, option):
+    return DISPLAY_OPTION[card][option]
