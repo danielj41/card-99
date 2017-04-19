@@ -1,8 +1,9 @@
 from make_training_data import makeTrainingData, LearningPlayer
 from count_wins import countWins
-from game import Player, Game
+from game import Game
 from bad_player import BadPlayer
 from human_player import play
+from player import Player
 
 import numpy as np
 import tensorflow as tf

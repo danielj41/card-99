@@ -1,6 +1,9 @@
 import random
 
 from card import *
+from deck import Deck
+from discard import DiscardPile
+from score import Score
 
 class Game:
     def __init__(self, players):
@@ -61,108 +64,3 @@ class Game:
 
         if (len(self.players) > 0):
             self.curPlayerIndex = self.curPlayerIndex % len(self.players)
-
-class Deck:
-    def __init__(self):
-        self.cards = range(N_ACE, N_KING + 1) * 4
-        random.shuffle(self.cards)
-
-    def pop(self):
-        return self.cards.pop()
-
-    def recreateIfNeeded(self, discard):
-        if (len(self.cards) == 0):
-            self.cards = discard.takeAll()
-            random.shuffle(self.cards)
-            discard.append(self.pop())
-
-class DiscardPile:
-    def __init__(self):
-        self.cards = []
-
-    def append(self, card):
-        self.cards.append(card)
-
-    def top(self):
-        return self.cards[-1]
-
-    def takeAll(self):
-        cards = self.cards;
-        self.cards = []
-        return cards
-
-    def numOfCard(self, card):
-        return self.cards.count(card)
-
-class Score:
-    def __init__(self):
-        self.score = 0
-
-    def cardPlayed(self, card, option):
-        self.score = self.getNewScore(card, option)
-        if (self.score < 0):
-            self.score = 0
-
-    def getNewScore(self, card, option):
-        if (card == N_ACE):
-            if (option == O_SMALL):
-                return self.score + 1
-            elif (option == O_LARGE):
-                return self.score + 11
-        elif (card == N_4):
-            return self.score
-        elif (card == N_9):
-            return 99
-        elif (card == N_10):
-            if (option == O_SMALL):
-                return self.score - 10
-            elif (option == O_LARGE):
-                return self.score + 10
-        elif (card == N_JACK or card == N_QUEEN):
-            return self.score + 10
-        elif (card == N_KING):
-            return self.score
-        else:
-            return self.score + card
-
-    def wouldCardPlayCauseLoss(self, card, option):
-        return self.getNewScore(card, option) > 99
-
-    def getScore(self):
-        return self.score
-
-    def didPlayerLose(self):
-        return self.score > 99
-
-    def reset(self):
-        self.score = 0
-
-class Player:
-    def __init__(self, uniqid):
-        self.hand = []
-        self.uniqid = uniqid
-
-    def getName(self):
-        return "Computer_" + str(self.uniqid)
-
-    def draw(self, card):
-        self.hand.append(card)
-
-    def chooseHandIndex(self, discard, score):
-        choices = [(0, O_SMALL), (1, O_SMALL), (2, O_SMALL), (0, O_LARGE), (1, O_LARGE), (2, O_LARGE)]
-        random.shuffle(choices)
-
-        handIndex = 0
-        option = 0
-        wouldLose = True
-        while (len(choices) > 0 and wouldLose):
-            (handIndex, option) = choices.pop()
-            wouldLose = score.wouldCardPlayCauseLoss(self.hand[handIndex], option)
-
-        return handIndex, option
-
-    def playCard(self, discard, score):
-        handIndex, option = self.chooseHandIndex(discard, score)
-        card = self.hand[handIndex]
-        del self.hand[handIndex]
-        return card, option

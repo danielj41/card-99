@@ -1,6 +1,6 @@
-from game import Player, Game
+from game import Game
 from card import N_ACE, N_10, O_SMALL, O_LARGE, cardDisplayTitle, isOptionCard, cardOptionDisplayTitle
-
+from player import Player
 
 class HumanPlayer(Player):
     def getName(self):

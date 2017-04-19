@@ -1,4 +1,5 @@
-from game import Player, Game
+from game import Game
+from player import Player
 from bad_player import BadPlayer
 
 def countWins(numGames, playerTypes):

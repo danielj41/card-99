@@ -1,4 +1,5 @@
-from game import Player, Game
+from game import Game
+from player import Player
 
 game = Game([Player(1), Player(2), Player(3), Player(4)])
 

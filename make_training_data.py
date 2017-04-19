@@ -1,4 +1,6 @@
-from game import Player, Game, N_ACE, N_KING
+from game import Game
+from card import N_ACE, N_KING
+from player import Player
 
 class LearningPlayer(Player):
     def __init__(self, uniqid):
