@@ -1,4 +1,5 @@
-from game import Player, Game, N_ACE, N_10, DISPLAY_CARD
+from game import Player, Game
+from card import N_ACE, N_10, cardDisplayTitle
 
 
 class HumanPlayer(Player):
@@ -11,12 +12,12 @@ class HumanPlayer(Player):
         print "YOUR TURN"
         print
         print "Current score:  ", score.getScore()
-        print "Top of discard: ", DISPLAY_CARD[discard.top()]
+        print "Top of discard: ", cardDisplayTitle(discard.top())
         print
         print "Your hand:"
-        print "1 -", DISPLAY_CARD[self.hand[0]]
-        print "2 -", DISPLAY_CARD[self.hand[1]]
-        print "3 -", DISPLAY_CARD[self.hand[2]]
+        print "1 -", cardDisplayTitle(self.hand[0])
+        print "2 -", cardDisplayTitle(self.hand[1])
+        print "3 -", cardDisplayTitle(self.hand[2])
         print
 
         choice = None

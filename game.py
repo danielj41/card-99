@@ -1,23 +1,6 @@
 import random
 
-N_ACE = 1
-N_2 = 2
-N_3 = 3
-N_4 = 4
-N_5 = 5
-N_6 = 6
-N_7 = 7
-N_8 = 8
-N_9 = 9
-N_10 = 10
-N_JACK = 11
-N_QUEEN = 12
-N_KING = 13
-
-O_SMALL = 0
-O_LARGE = 1
-
-DISPLAY_CARD = ['', 'Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King']
+from card import *
 
 class Game:
     def __init__(self, players):
@@ -46,7 +29,7 @@ class Game:
         self.deck.recreateIfNeeded(self.discard)
 
         if (announce):
-            announce(player.getName() + " played " + DISPLAY_CARD[card])
+            announce(player.getName() + " played " + cardDisplayTitle(card))
 
         self.score.cardPlayed(card, option)
 
