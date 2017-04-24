@@ -1,8 +1,8 @@
 from game import Game
 from card import N_ACE, N_KING
-from player import Player
+from heuristic_player import HeuristicPlayer
 
-class LearningPlayer(Player):
+class LearningPlayer(HeuristicPlayer):
     def __init__(self, uniqid):
         Player.__init__(self, uniqid)
         self.trainingDataInput = []
@@ -32,7 +32,7 @@ class LearningPlayer(Player):
     def chooseHandIndex(self, discard, score):
         inputVector = self.getInputVector(discard, score)
 
-        handIndex, option = Player.chooseHandIndex(self, discard, score)
+        handIndex, option = HeuristicPlayer.chooseHandIndex(self, discard, score)
 
         output = option * 3 + handIndex
 

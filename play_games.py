@@ -1,7 +1,7 @@
 from game import Game
-from player import Player
+from heuristic_player import HeuristicPlayer
 
-game = Game([Player(1), Player(2), Player(3), Player(4)])
+game = Game([HeuristicPlayer(1), HeuristicPlayer(2), HeuristicPlayer(3), HeuristicPlayer(4)])
 
 def announce(text):
     print text

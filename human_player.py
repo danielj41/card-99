@@ -1,6 +1,7 @@
 from game import Game
 from card import N_ACE, N_10, O_SMALL, O_LARGE, cardDisplayTitle, isOptionCard, cardOptionDisplayTitle
 from player import Player
+from heuristic_player import HeuristicPlayer
 
 class HumanPlayer(Player):
     def getName(self):
@@ -55,4 +56,4 @@ def play(opponent):
     print winner.getName(), "WINS"
 
 if __name__ == '__main__':
-    play(Player(1))
+    play(HeuristicPlayer(1))

@@ -1,5 +1,5 @@
 from game import Game
-from player import Player
+from heuristic_player import HeuristicPlayer
 from bad_player import BadPlayer
 
 def countWins(numGames, playerTypes):
@@ -21,4 +21,4 @@ def countWins(numGames, playerTypes):
     print wins
 
 if __name__ == '__main__':
-    countWins(10000, [BadPlayer, Player, Player])
+    countWins(10000, [BadPlayer, HeuristicPlayer, HeuristicPlayer])
