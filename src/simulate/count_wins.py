@@ -1,6 +1,6 @@
 from game import Game
-from heuristic_player import HeuristicPlayer
-from bad_player import BadPlayer
+from players.heuristic_player import HeuristicPlayer
+from players.bad_player import BadPlayer
 
 def countWins(numGames, playerTypes):
     wins = {}

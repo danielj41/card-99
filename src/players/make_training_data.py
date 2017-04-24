@@ -1,5 +1,5 @@
 from game import Game
-from card import N_ACE, N_KING
+from game.card import N_ACE, N_KING
 from heuristic_player import HeuristicPlayer
 
 class LearningPlayer(HeuristicPlayer):

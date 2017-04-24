@@ -1,6 +1,6 @@
-from game import Game
-from card import N_ACE, N_10, DISPLAY_CARD, O_SMALL, O_LARGE
-from player import Player
+from game.card import N_ACE, N_10, DISPLAY_CARD, O_SMALL, O_LARGE
+from game.player import Player
+
 import random
 
 class HeuristicPlayer(Player):

@@ -1,5 +1,5 @@
 from game import Game
-from heuristic_player import HeuristicPlayer
+from players.heuristic_player import HeuristicPlayer
 
 game = Game([HeuristicPlayer(1), HeuristicPlayer(2), HeuristicPlayer(3), HeuristicPlayer(4)])
 

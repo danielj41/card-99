@@ -1,6 +1,4 @@
-from game import Game
-from card import N_ACE, N_10, DISPLAY_CARD
-from player import Player
+from game.player import Player
 
 class BadPlayer(Player):
     def getName(self):
