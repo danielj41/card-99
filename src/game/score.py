@@ -1,4 +1,4 @@
-from card import *
+import card as C
 
 class Score:
     def __init__(self):
@@ -10,23 +10,23 @@ class Score:
             self.score = 0
 
     def getNewScore(self, card, option):
-        if (card == N_ACE):
-            if (option == O_SMALL):
+        if (card == C.N_ACE):
+            if (option == C.O_SMALL):
                 return self.score + 1
-            elif (option == O_LARGE):
+            elif (option == C.O_LARGE):
                 return self.score + 11
-        elif (card == N_4):
+        elif (card == C.N_4):
             return self.score
-        elif (card == N_9):
+        elif (card == C.N_9):
             return 99
-        elif (card == N_10):
-            if (option == O_SMALL):
+        elif (card == C.N_10):
+            if (option == C.O_SMALL):
                 return self.score - 10
-            elif (option == O_LARGE):
+            elif (option == C.O_LARGE):
                 return self.score + 10
-        elif (card == N_JACK or card == N_QUEEN):
+        elif (card == C.N_JACK or card == C.N_QUEEN):
             return self.score + 10
-        elif (card == N_KING):
+        elif (card == C.N_KING):
             return self.score
         else:
             return self.score + card

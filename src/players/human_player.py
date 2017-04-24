@@ -1,5 +1,5 @@
 from game import Game
-from game.card import N_ACE, N_10, O_SMALL, O_LARGE, cardDisplayTitle, isOptionCard, cardOptionDisplayTitle
+import game.card as C
 from game.player import Player
 from heuristic_player import HeuristicPlayer
 
@@ -13,12 +13,12 @@ class HumanPlayer(Player):
         print "YOUR TURN"
         print
         print "Current score:  ", score.getScore()
-        print "Top of discard: ", cardDisplayTitle(discard.top())
+        print "Top of discard: ", C.displayTitle(discard.top())
         print
         print "Your hand:"
-        print "1 -", cardDisplayTitle(self.hand[0])
-        print "2 -", cardDisplayTitle(self.hand[1])
-        print "3 -", cardDisplayTitle(self.hand[2])
+        print "1 -", C.displayTitle(self.hand[0])
+        print "2 -", C.displayTitle(self.hand[1])
+        print "3 -", C.displayTitle(self.hand[2])
         print
 
         choice = None
@@ -31,14 +31,14 @@ class HumanPlayer(Player):
         option = None
         card = self.hand[index]
 
-        if (isOptionCard(card)):
+        if (C.isOptionCard(card)):
             choice = None
-            print "1 -", cardOptionDisplayTitle(card, O_SMALL)
-            print "2 -", cardOptionDisplayTitle(card, O_LARGE)
+            print "1 -", C.optionDisplayTitle(card, C.O_SMALL)
+            print "2 -", C.optionDisplayTitle(card, C.O_LARGE)
             print
             while (choice not in (1, 2)):
                 choice = int(raw_input("Which value? "))
-            option = O_SMALL if choice == 1 else O_LARGE
+            option = C.O_SMALL if choice == 1 else C.O_LARGE
 
         return index, option
 

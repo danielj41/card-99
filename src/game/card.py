@@ -12,6 +12,12 @@ N_JACK = 11
 N_QUEEN = 12
 N_KING = 13
 
+N_MIN = 1
+N_MAX = 13
+NUM_SUITS = 4
+
+PER_PLAYER = 3
+
 DISPLAY_CARD = {
     N_ACE: 'Ace',
     N_2: '2',
@@ -28,7 +34,7 @@ DISPLAY_CARD = {
     N_KING: 'King'
 }
 
-def cardDisplayTitle(card):
+def displayTitle(card):
     return DISPLAY_CARD[card]
 
 OPTION_CARDS = [N_ACE, N_10]
@@ -50,5 +56,5 @@ DISPLAY_OPTION = {
 def isOptionCard(card):
     return card in OPTION_CARDS
 
-def cardOptionDisplayTitle(card, option):
+def optionDisplayTitle(card, option):
     return DISPLAY_OPTION[card][option]

@@ -1,7 +1,3 @@
-from card import O_SMALL, O_LARGE
-
-import random
-
 class Player:
     def __init__(self, uniqid):
         self.hand = []

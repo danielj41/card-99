@@ -1,6 +1,6 @@
 import random
 
-from card import *
+import card as C
 from deck import Deck
 from discard import DiscardPile
 from score import Score
@@ -16,7 +16,7 @@ class Game:
         self.deck = Deck()
         self.discard = DiscardPile()
 
-        for i in range(3):
+        for i in range(C.PER_PLAYER):
             for player in self.players:
                 player.draw(self.deck.pop())
 
@@ -32,7 +32,7 @@ class Game:
         self.deck.recreateIfNeeded(self.discard)
 
         if (announce):
-            announce(player.getName() + " played " + cardDisplayTitle(card))
+            announce(player.getName() + " played " + C.displayTitle(card))
 
         self.score.cardPlayed(card, option)
 
@@ -54,9 +54,9 @@ class Game:
         self.curPlayerIndex -= 1
 
     def setNextPlayer(self, card):
-        if (card == N_3):
+        if (card == C.N_3):
             self.curPlayerIndex += 2 * self.playerDirection
-        elif (card == N_4):
+        elif (card == C.N_4):
             self.playerDirection = -self.playerDirection
             self.curPlayerIndex += self.playerDirection
         else:

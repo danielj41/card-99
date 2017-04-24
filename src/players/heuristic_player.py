@@ -1,4 +1,4 @@
-from game.card import N_ACE, N_10, DISPLAY_CARD, O_SMALL, O_LARGE
+import game.card as C
 from game.player import Player
 
 import random
@@ -8,7 +8,7 @@ class HeuristicPlayer(Player):
         return "Heuristic_" + str(self.uniqid)
 
     def chooseHandIndex(self, discard, score):
-        choices = [(0, O_SMALL), (1, O_SMALL), (2, O_SMALL), (0, O_LARGE), (1, O_LARGE), (2, O_LARGE)]
+        choices = [(0, C.O_SMALL), (1, C.O_SMALL), (2, C.O_SMALL), (0, C.O_LARGE), (1, C.O_LARGE), (2, C.O_LARGE)]
         random.shuffle(choices)
 
         handIndex = 0

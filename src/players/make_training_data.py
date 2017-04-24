@@ -1,5 +1,5 @@
 from game import Game
-from game.card import N_ACE, N_KING
+import game.card as C
 from heuristic_player import HeuristicPlayer
 
 class LearningPlayer(HeuristicPlayer):
@@ -20,7 +20,7 @@ class LearningPlayer(HeuristicPlayer):
             inputCard[card - 1] = 1
             inputVector += inputCard
 
-        for card in range(N_ACE, N_KING + 1):
+        for card in range(C.N_MIN, C.N_MAX + 1):
             inputVector.append(discard.numOfCard(card) / 4.0)
 
         return inputVector
