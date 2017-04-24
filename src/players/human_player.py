@@ -4,9 +4,6 @@ from game.player import Player
 from heuristic_player import HeuristicPlayer
 
 class HumanPlayer(Player):
-    def getName(self):
-        return "You"
-
     def chooseHandIndex(self, discard, score):
         print
         print

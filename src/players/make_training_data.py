@@ -8,9 +8,6 @@ class LearningPlayer(HeuristicPlayer):
         self.trainingDataInput = []
         self.trainingDataOutput = []
 
-    def getName(self):
-        return "Learner"
-
     def getInputVector(self, discard, score):
         inputVector = []
         inputVector.append(score.getScore() / 99.0)
